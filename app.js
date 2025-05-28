@@ -16,6 +16,31 @@ revealItems.forEach(el=>{
   io.observe(el);
 });
 
+/* ── KPI COUNT-UP  ────────────────────────────────── */
+document.querySelectorAll('.num').forEach(el=>{
+  const target = +el.dataset.value;            // final number
+  const decimals = (el.dataset.value.includes('.')) ? 1 : 0;
+  const io = new IntersectionObserver(([e])=>{
+    if (!e.isIntersecting) return;
+
+    let current = 0;
+    const step = target / 40;                  // 40 frames ≈ 0.6-0.7 s
+    function tick(){
+      current += step;
+      if (current >= target){
+        el.textContent = target.toFixed(decimals);
+      } else {
+        el.textContent = current.toFixed(decimals);
+        requestAnimationFrame(tick);
+      }
+    }
+    tick();
+    io.unobserve(el);                          // run once
+  }, {threshold: 0.6});
+  io.observe(el);
+});
+
+
 /* 2️⃣  Particles in hero.
       No external libs – dead-simple canvas dots */
 const cvs = document.getElementById('bg');
@@ -42,3 +67,5 @@ if(cvs){
     requestAnimationFrame(anim);
   })();
 }
+
+
