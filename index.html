@@ -1,110 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Janklow.ai – AI & Automation for Midwest Businesses</title>
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- ---- Meta & SEO ---- -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Janklow.ai – AI & Automation that Grows Midwest Businesses</title>
+  <meta name="description"
+        content="Janklow.ai engineers custom AI & automation that slash costs, multiply throughput, and unlock new revenue—often in under 60 days.">
+  <link rel="canonical" href="https://janklowai.xyz/">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Janklow.ai – AI & Automation for Midwest Businesses">
+  <meta property="og:description"
+        content="Slash costs, boost output, accelerate growth. Custom AI solutions delivered in weeks, not quarters.">
+  <meta property="og:url" content="https://janklowai.xyz/">
+  <meta property="og:type" content="website">
+  <!-- Assets -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-SzZUDDH4uKMMxQHfs+pX2Y3H3m6w8Yr0lfyvCCudg0j0Y+kXL0uAt9kyymhPDcpjI3kzHRTUVhV1pA1nIj9HwQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 </head>
+
 <body>
-<header class="top-nav">
-  <div class="container nav-inner">
-    <a href="index.html" class="logo">Janklow<span>.ai</span></a>
-    <nav>
-      <input type="checkbox" id="menu-toggle">
-      <label for="menu-toggle" class="hamburger"><span></span></label>
-      <ul class="nav-links">
-        <li><a href="services.html">Services</a></li>
-        <li><a href="process.html">Process</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html" class="cta">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+  <!-- ═══════════ NAV ═══════════ -->
+  <header class="top-nav" role="banner">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo" aria-label="Janklow.ai Home">Janklow<span>.ai</span></a>
 
-<section class="hero hero-local">
-  <canvas id="bg"></canvas>
-  <div class="container hero-inner">
-    <h1><span class="accent">AI&nbsp;& Automation</span> that Grows Sioux Falls Businesses</h1>
-    <p class="sub">We turn your everyday data and workflows into smart, self‑optimizing systems that boost revenue, slash manual hours, and delight customers—often in <strong>under 60 days</strong>.</p>
-    <div class="hero-cta">
-      <a href="contact.html" class="btn-primary">Book Free Strategy Call</a>
+      <nav aria-label="Primary">
+        <input type="checkbox" id="menu-toggle" aria-label="Open menu">
+        <label for="menu-toggle" class="hamburger"><span></span></label>
+
+        <ul class="nav-links">
+          <li><a href="services.html">Services</a></li>
+          <li><a href="process.html">Process</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html" class="btn-cta">Contact</a></li>
+        </ul>
+      </nav>
     </div>
-  </div>
-</section>
+  </header>
 
-<section class="stats-banner">
-  <div class="container stats-grid">
-    <div class="stat"><span class="num">28%</span><span class="label">Average Cost Reduction</span></div>
-    <div class="stat"><span class="num">4.6×</span><span class="label">Ops Throughput Gain</span></div>
-    <div class="stat"><span class="num">6‑week</span><span class="label">Prototype to Production</span></div>
-  </div>
-</section>
-
-<section class="industries">
-  <div class="container">
-    <h2>Who We Help</h2>
-    <div class="industry-grid">
-      <div class="industry"><i class="fa-solid fa-warehouse"></i>Manufacturing</div>
-      <div class="industry"><i class="fa-solid fa-store"></i>Retail & E‑commerce</div>
-      <div class="industry"><i class="fa-solid fa-building"></i>Real Estate</div>
-      <div class="industry"><i class="fa-solid fa-stethoscope"></i>Healthcare</div>
-      <div class="industry"><i class="fa-solid fa-screwdriver-wrench"></i>Professional Services</div>
+  <!-- ═══════════ HERO ═══════════ -->
+  <section id="home" class="hero hero-local">
+    <canvas id="bg" aria-hidden="true"></canvas>
+    <div class="container hero-inner">
+      <h1><span class="accent">AI & Automation</span> that Multiply Business Performance & Efficiency</h1>
+      <p>Turn everyday data and workflows into self-optimizing systems that <strong>cut costs, boost output, and unlock new revenue</strong>—in as little as <strong>60 days</strong>.</p>
+      <a href="contact.html" class="btn-primary">Book a Free Strategy Call</a>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="highlights">
-  <div class="container grid-3">
-    <div class="card">
-      <i class="fa-solid fa-magnifying-glass-chart"></i>
-      <h3>AI Opportunity Audit</h3>
-      <p>Data‑driven discovery sessions pinpoint where AI and automation will create the greatest ROI.</p>
+  <!-- ═══════════ STATS ═══════════ -->
+  <section id="impact" class="stats-banner" aria-label="Impact metrics">
+    <div class="container stats-grid">
+      <div class="stat"><span class="num">30%</span><span class="label">Avg. Cost Reduction</span></div>
+      <div class="stat"><span class="num">4.6×</span><span class="label">Throughput Increase</span></div>
+      <div class="stat"><span class="num">6&nbsp;weeks</span><span class="label">Idea → Production</span></div>
     </div>
-    <div class="card">
-      <i class="fa-solid fa-gears"></i>
-      <h3>Custom Solution Design</h3>
-      <p>We architect and build bespoke models, pipelines, and automations aligned with your unique workflows.</p>
-    </div>
-    <div class="card">
-      <i class="fa-solid fa-rocket"></i>
-      <h3>End‑to‑End Delivery</h3>
-      <p>From integration and security to team enablement—our experts handle deployment so you can scale with confidence.</p>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section class="testimonial">
-  <div class="container testimonial-inner">
-    <blockquote>
-      “Janklow.ai automated our tenant‑screening pipeline in four weeks, freeing two full‑time employees and cutting application turnaround from days to minutes.”
-    </blockquote>
-    <cite>— COO, Regional Property Group</cite>
-  </div>
-</section>
-
-<section class="cta-banner local-cta">
-  <div class="container cta-inner">
-    <h2>Curious what AI could save—or earn—your business?</h2>
-    <p>Let's run the numbers together. Initial discovery is on us.</p>
-    <a href="contact.html" class="btn-primary">Schedule My Free Audit</a>
-  </div>
-</section>
-
-<footer class="footer">
-  <div class="container footer-inner">
-    <p>© 2025 Janklow.ai · Sioux Falls, SD · info@janklowai.xyz</p>
-    <div class="social">
-      <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-      <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-      <a href="#"><i class="fa-brands fa-github"></i></a>
+  <!-- ═══════════ INDUSTRIES ═══════════ -->
+  <section id="industries" class="industries">
+    <div class="container">
+      <h2>Who We Help</h2>
+      <div class="industry-grid">
+        <div class="industry"><i class="fa-solid fa-warehouse" aria-hidden="true"></i>Manufacturing</div>
+        <div class="industry"><i class="fa-solid fa-store" aria-hidden="true"></i>Retail &amp; E-commerce</div>
+        <div class="industry"><i class="fa-solid fa-building" aria-hidden="true"></i>Real Estate</div>
+        <div class="industry"><i class="fa-solid fa-stethoscope" aria-hidden="true"></i>Healthcare</div>
+        <div class="industry"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i>Pro Services</div>
+      </div>
     </div>
-  </div>
-</footer>
-<script src="app.js"></script>
+  </section>
+
+  <!-- ═══════════ SERVICES HIGHLIGHTS ═══════════ -->
+  <section id="services-preview" class="highlights">
+    <div class="container grid-3">
+      <div class="card">
+        <i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i>
+        <h3>ROI Roadmap</h3>
+        <p>Data-driven workshops pinpoint high-value automation and AI opportunities—in hours, not weeks.</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-gears" aria-hidden="true"></i>
+        <h3>Bespoke AI Solutions</h3>
+        <p>LLMs, vision models, RPA, real-time analytics—architected around <em>your</em> workflows &amp; stack.</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-rocket" aria-hidden="true"></i>
+        <h3>End-to-End Delivery</h3>
+        <p>Secure deployment, change-management, and team enablement—so value lands on day one.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ TESTIMONIAL ═══════════ -->
+  <section id="testimonial" class="testimonial" aria-label="Client testimonial">
+    <div class="container testimonial-inner">
+      <blockquote>
+        “Janklow.ai automated our tenant-screening pipeline in <strong>four weeks</strong>, freed two FTEs, and cut approval
+        time from days to minutes.”
+      </blockquote>
+      <cite>— COO, Regional Property Group</cite>
+    </div>
+  </section>
+
+  <!-- ═══════════ CTA ═══════════ -->
+  <section id="cta" class="cta-banner">
+    <div class="container cta-inner">
+      <h2>Let’s quantify your AI upside.</h2>
+      <p>Initial discovery is free—see what you could save or earn before you commit.</p>
+      <a href="contact.html" class="btn-primary">Schedule My Free Audit</a>
+    </div>
+  </section>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-inner">
+      <p>© 2025 Janklow.ai &middot; Sioux Falls, SD &middot; <a href="mailto:info@janklowai.xyz">info@janklowai.xyz</a></p>
+      <div class="social">
+        <a href="https://linkedin.com" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://twitter.com" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://github.com" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════ SCRIPTS ═══════════ -->
+  <script src="app.js" defer></script>
+  <noscript>Your browser does not support JavaScript or it is disabled. The site will still work, but interactive
+    enhancements are unavailable.</noscript>
 </body>
+
 </html>
