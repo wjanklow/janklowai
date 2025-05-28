@@ -40,425 +40,126 @@
       color: var(--color-dark);
       background: var(--color-light);
       -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
     }
 
-    img {
-      display: block;
-      max-width: 100%;
-    }
+    img { display: block; max-width: 100%; }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-      transition: color 0.2s ease-in-out;
-    }
+    a { text-decoration: none; color: inherit; transition: color 0.2s ease-in-out; }
 
-    ul {
-      list-style: none;
-    }
+    ul { list-style: none; }
 
     /* ----------------------------------
        UTILITIES
     ---------------------------------- */
-    .container {
-      width: min(90%, var(--site-max-width));
-      margin-inline: auto;
-    }
+    .container { width: min(90%, var(--site-max-width)); margin-inline: auto; }
 
     .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.9rem 1.8rem;
-      border: none;
-      border-radius: var(--radius-lg);
-      font-weight: 600;
-      cursor: pointer;
-      transition: filter 0.2s ease-in-out, transform 0.2s ease-in-out;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.9rem 1.8rem; border: none; border-radius: var(--radius-lg);
+      font-weight: 600; cursor: pointer; transition: filter 0.2s, transform 0.2s;
     }
+    .btn-primary { background: var(--color-accent); color: #fff; border: 2px solid var(--color-accent); }
+    .btn-primary:hover { filter: brightness(1.1); transform: translateY(-2px); }
 
-    .btn-primary {
-      background: var(--color-accent);
-      color: #fff;
-      border: 2px solid var(--color-accent);
-    }
-
-    .btn-primary:hover {
-      filter: brightness(1.1);
-      transform: translateY(-2px);
-    }
-
-    .text-center {
-      text-align: center;
-    }
+    .text-center { text-align: center; }
 
     /* ----------------------------------
        NAVIGATION
     ---------------------------------- */
     .top-nav {
-      position: sticky;
-      top: 0;
-      width: 100%;
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(8px);
-      box-shadow: 0 2px 6px rgb(0 0 0 / 6%);
-      z-index: 100;
+      position: sticky; top: 0; width: 100%; background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(8px); box-shadow: 0 2px 6px rgb(0 0 0 / 6%); z-index: 100;
     }
-
-    .nav-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.8rem 0;
-    }
-
-    .logo {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--color-dark);
-    }
-
-    .logo span {
-      color: var(--color-primary);
-    }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 0; }
+    .logo { font-size: 1.6rem; font-weight: 700; color: var(--color-dark); }
+    .logo span { color: var(--color-primary); }
 
     /* Hamburger */
-    #menu-toggle {
-      display: none;
+    #menu-toggle { display: none; }
+    .hamburger { display: none; cursor: pointer; width: 24px; height: 18px; position: relative; }
+    .hamburger span, .hamburger span::before, .hamburger span::after {
+      position: absolute; height: 3px; width: 100%; background: var(--color-dark);
+      border-radius: 3px; content: ''; transition: transform 0.3s ease;
     }
+    .hamburger span::before { top: -6px; }
+    .hamburger span::after { top: 6px; }
 
-    .hamburger {
-      display: none;
-      cursor: pointer;
-      width: 24px;
-      height: 18px;
-      position: relative;
-    }
-
-    .hamburger span,
-    .hamburger span::before,
-    .hamburger span::after {
-      position: absolute;
-      height: 3px;
-      width: 100%;
-      background: var(--color-dark);
-      border-radius: 3px;
-      content: '';
-      transition: transform 0.3s ease;
-    }
-
-    .hamburger span::before {
-      top: -6px;
-    }
-
-    .hamburger span::after {
-      top: 6px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-    }
-
-    .nav-links li a {
-      font-weight: 500;
-    }
-
-    .nav-links li a:hover {
-      color: var(--color-primary);
-    }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links li a { font-weight: 500; }
+    .nav-links li a:hover { color: var(--color-primary); }
 
     /* Mobile nav */
     @media (max-width: 768px) {
-      .hamburger {
-        display: block;
-      }
-
+      .hamburger { display: block; }
       .nav-links {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        flex-direction: column;
-        background: #fff;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease-in-out;
-        box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
+        position: absolute; top: 100%; left: 0; width: 100%; flex-direction: column; background: #fff;
+        max-height: 0; overflow: hidden; transition: max-height 0.3s ease-in-out; box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
       }
-
-      #menu-toggle:checked ~ label .hamburger span {
-        background: transparent;
-      }
-
-      #menu-toggle:checked ~ label .hamburger span::before {
-        transform: translateY(6px) rotate(45deg);
-      }
-
-      #menu-toggle:checked ~ label .hamburger span::after {
-        transform: translateY(-6px) rotate(-45deg);
-      }
-
-      #menu-toggle:checked ~ ul.nav-links {
-        max-height: 240px;
-        padding: 1rem 0;
-      }
-
-      .nav-links li {
-        padding: 0.7rem 1.5rem;
-      }
+      #menu-toggle:checked ~ label .hamburger span { background: transparent; }
+      #menu-toggle:checked ~ label .hamburger span::before { transform: translateY(6px) rotate(45deg); }
+      #menu-toggle:checked ~ label .hamburger span::after { transform: translateY(-6px) rotate(-45deg); }
+      #menu-toggle:checked ~ ul.nav-links { max-height: 260px; padding: 1rem 0; }
+      .nav-links li { padding: 0.7rem 1.5rem; }
     }
 
     /* ----------------------------------
-       HERO SECTION
+       HERO
     ---------------------------------- */
-    .hero {
-      padding: 6rem 0 4rem;
-    }
-
-    .hero h1 {
-      font-size: clamp(2rem, 4vw + 1rem, 3.5rem);
-      font-weight: 700;
-      line-height: 1.2;
-    }
-
-    .hero h1 span {
-      color: var(--color-primary);
-    }
-
-    .hero p {
-      margin: 1.2rem 0 2.4rem;
-      color: var(--color-muted);
-      font-size: 1.125rem;
-      max-width: 48ch;
-      margin-inline: auto;
-    }
+    .hero { padding: 6rem 0 4rem; }
+    .hero h1 { font-size: clamp(2rem,4vw+1rem,3.5rem); font-weight: 700; line-height: 1.2; }
+    .hero h1 span { color: var(--color-primary); }
+    .hero p { margin: 1.2rem 0 2.4rem; color: var(--color-muted); font-size: 1.125rem; max-width: 48ch; margin-inline: auto; }
 
     /* ----------------------------------
-       STATS BANNER
+       SECTIONS SHARED
     ---------------------------------- */
-    .stats {
-      background: #fff;
-      padding: 2rem 0;
-      box-shadow: inset 0 1px 0 rgb(0 0 0 / 5%);
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1.5rem;
-      text-align: center;
-    }
-
-    .stat-number {
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--color-primary);
-    }
+    section { scroll-margin-top: 80px; }
 
     /* ----------------------------------
-       PROCESS CARDS
+       STATS
     ---------------------------------- */
-    .process {
-      padding: 4rem 0 2rem;
-    }
+    .stats { background: #fff; padding: 2rem 0; box-shadow: inset 0 1px 0 rgb(0 0 0 / 5%); }
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(150px,1fr)); gap: 1.5rem; text-align: center; }
+    .stat-number { font-size: 2rem; font-weight: 700; color: var(--color-primary); }
 
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
+    /* ----------------------------------
+       SERVICES
+    ---------------------------------- */
+    .services { padding: 4rem 0 2rem; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 2rem; margin-top: 2rem; }
 
+    /* ----------------------------------
+       PROCESS
+    ---------------------------------- */
+    .process { padding: 4rem 0 2rem; }
+    .process-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 2rem; margin-top: 2rem; }
+
+    /* ----------------------------------
+       ABOUT
+    ---------------------------------- */
+    .about { padding: 4rem 0 2rem; }
+
+    /* ----------------------------------
+       CARD SHARED
+    ---------------------------------- */
     .card {
-      background: #fff;
-      border-radius: var(--radius-lg);
-      box-shadow: 0 6px 16px rgb(0 0 0 / 6%);
-      padding: 2rem 1.5rem;
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: #fff; border-radius: var(--radius-lg); box-shadow: 0 6px 16px rgb(0 0 0 / 6%);
+      padding: 2rem 1.5rem; text-align: center; transition: transform 0.3s, box-shadow 0.3s;
     }
-
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 24px rgb(0 0 0 / 8%);
-    }
-
-    .card i {
-      font-size: 2rem;
-      color: var(--color-primary);
-      margin-bottom: 1rem;
-    }
-
-    .card h3 {
-      margin-bottom: 0.6rem;
-      font-size: 1.25rem;
-    }
-
-    .card p {
-      color: var(--color-muted);
-      font-size: 0.95rem;
-    }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 12px 24px rgb(0 0 0 / 8%); }
+    .card i { font-size: 2rem; color: var(--color-primary); margin-bottom: 1rem; }
+    .card h3 { margin-bottom: 0.6rem; font-size: 1.25rem; }
+    .card p { color: var(--color-muted); font-size: 0.95rem; }
 
     /* ----------------------------------
        TESTIMONIAL
     ---------------------------------- */
-    .testimonial {
-      background: var(--color-primary);
-      color: #fff;
-      padding: 4rem 1rem;
-      margin-block: 4rem;
-      border-radius: var(--radius-lg);
-    }
-
-    .testimonial blockquote {
-      font-size: 1.25rem;
-      line-height: 1.5;
-      max-width: 50ch;
-      margin-inline: auto;
-      font-weight: 300;
-    }
-
-    .testimonial cite {
-      display: block;
-      margin-top: 1rem;
-      font-weight: 600;
-      font-style: normal;
-    }
+    .testimonial { background: var(--color-primary); color: #fff; padding: 4rem 1rem; margin-block: 4rem; border-radius: var(--radius-lg); }
+    .testimonial blockquote { font-size: 1.25rem; line-height: 1.5; max-width: 50ch; margin-inline: auto; font-weight: 300; }
+    .testimonial cite { display: block; margin-top: 1rem; font-weight: 600; font-style: normal; }
 
     /* ----------------------------------
-       CTA BANNER
+       CTA
     ---------------------------------- */
-    .cta {
-      padding: 3rem 0 5rem;
-    }
-
-    /* ----------------------------------
-       FOOTER
-    ---------------------------------- */
-    footer {
-      background: #fff;
-      padding: 2rem 0;
-      text-align: center;
-      font-size: 0.9rem;
-      color: var(--color-muted);
-      border-top: 1px solid rgba(0, 0, 0, 0.05);
-    }
-
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-bottom: 0.8rem;
-    }
-
-    .social-links a {
-      font-size: 1.2rem;
-      color: var(--color-muted);
-    }
-
-    .social-links a:hover {
-      color: var(--color-primary);
-    }
-  </style>
-</head>
-<body>
-  <!-- Navigation -->
-  <header class="top-nav">
-    <div class="container nav-inner">
-      <a href="#" class="logo">Janklow<span>.ai</span></a>
-      <input type="checkbox" id="menu-toggle" />
-      <label for="menu-toggle" class="hamburger"><span></span></label>
-      <ul class="nav-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#process">Process</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </header>
-
-  <main>
-    <!-- Hero -->
-    <section class="hero text-center container">
-      <h1>AI & Automation <span>that Grows Your Business</span></h1>
-      <p>
-        We turn everyday data and workflows into cost‑cutting, revenue‑boosting
-        systems—tailored for insurance firms, dealerships, hospitals, and more.
-      </p>
-      <a href="#contact" class="btn btn-primary">Book Free Strategy Call</a>
-    </section>
-
-    <!-- Stats Banner -->
-    <section class="stats">
-      <div class="container stats-grid">
-        <div>
-          <div class="stat-number">28%</div>
-          <p>Average cost reduction</p>
-        </div>
-        <div>
-          <div class="stat-number">4.6×</div>
-          <p>Increase in throughput</p>
-        </div>
-        <div>
-          <div class="stat-number">6 wk</div>
-          <p>Prototype → Production</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Process -->
-    <section id="process" class="process container text-center">
-      <h2>How We Work</h2>
-      <div class="process-grid">
-        <div class="card">
-          <i class="fa-solid fa-magnifying-glass-chart"></i>
-          <h3>Discover</h3>
-          <p>Deep‑dive audit to spot automation and AI opportunities that move the needle.</p>
-        </div>
-        <div class="card">
-          <i class="fa-solid fa-gears"></i>
-          <h3>Prototype</h3>
-          <p>Rapid proof‑of‑concept bots & dashboards so you can see ROI before committing.</p>
-        </div>
-        <div class="card">
-          <i class="fa-solid fa-rocket"></i>
-          <h3>Deploy</h3>
-          <p>Production‑grade rollout with monitoring, training, and iterative improvements.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Testimonial -->
-    <section class="testimonial container text-center">
-      <blockquote>
-        “Janklow.ai automated 90% of our tenant screening and saved us 20 hours a
-        week—while catching risk factors we used to miss.”
-      </blockquote>
-      <cite>— COO, Regional Property Group</cite>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta text-center container">
-      <h2>Ready to See the Numbers?</h2>
-      <p>Schedule a free audit and find out exactly where AI can impact your bottom line.</p>
-      <a href="#contact" class="btn btn-primary">Schedule My Free Audit</a>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer id="contact">
-    <div class="social-links">
-      <a href="https://www.linkedin.com/company/janklowai" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      <a href="https://twitter.com/janklowai" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
-      <a href="https://github.com/janklowai" aria-label="GitHub"><i class="fab fa-github"></i></a>
-    </div>
-    <p>&copy; <span id="year"></span> Janklow.ai – Sioux Falls, SD • <a href="mailto:info@janklowai.xyz">info@janklowai.xyz</a></p>
-  </footer>
-
-  <script>
-    // auto-update year
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+    .cta { padding
