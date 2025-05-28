@@ -1,188 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- ——— Meta & SEO ——— -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Janklow.ai – If It Can Be Automated, We Build It</title>
-  <meta name="description"
-        content="Janklow.ai engineers custom AI—ads, analytics, automation, and anything in between—that slashes cost and drives revenue for Midwest businesses.">
-  <link rel="canonical" href="https://janklowai.xyz/">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Janklow.ai – AI & Automation for Midwest Businesses</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* ------------------------------
+       BRAND + NEUTRALS
+    ------------------------------ */
+    :root {
+      --clr-primary: #0d6efd;   /* trustworthy blue */
+      --clr-accent:  #ff6037;   /* warm orange CTA */
+      --clr-dark:    #1e1e1e;
+      --clr-light:   #f8f9fc;
+      --clr-muted:   #6c7a89;
+      --radius-lg:   .75rem;
+      --max-width:   1100px;
+    }
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Janklow.ai – AI & Automation for Midwest Businesses">
-  <meta property="og:description"
-        content="AI-generated commercials, predictive engines, autonomous agents—delivered in under 60 days.">
-  <meta property="og:type"  content="website">
-  <meta property="og:url"   content="https://janklowai.xyz/">
+    /* ------------------------------
+       GLOBAL RESET
+    ------------------------------ */
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:'Inter',sans-serif;line-height:1.6;color:var(--clr-dark);
+      background:var(--clr-light);-webkit-font-smoothing:antialiased;
+      scroll-behavior:smooth;
+    }
+    img{display:block;max-width:100%}
+    a{text-decoration:none;color:inherit;transition:color .2s}
+    ul{list-style:none}
 
-  <!-- Assets -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-        integrity="sha512-SzZUDDH4uKMMxQHfs+pX2Y3H3m6w8Yr0lfyvCCudg0j0Y+kXL0uAt9kyymhPDcpjI3kzHRTUVhV1pA1nIj9HwQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    /* UTIL */
+    .container{width:min(92%,var(--max-width));margin-inline:auto}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 1.8rem;
+      border-radius:var(--radius-lg);font-weight:600;cursor:pointer;
+      transition:filter .2s,transform .2s;border:2px solid transparent}
+    .btn-primary{background:var(--clr-accent);color:#fff;border-color:var(--clr-accent)}
+    .btn-primary:hover{filter:brightness(1.1);transform:translateY(-2px)}
+    .text-center{text-align:center}
+
+    /* ------------------------------
+       NAVIGATION
+    ------------------------------ */
+    .top-nav{position:sticky;top:0;z-index:100;width:100%;background:rgba(255,255,255,.85);
+      backdrop-filter:blur(8px);box-shadow:0 2px 6px rgb(0 0 0 / 6%)}
+    .nav-inner{display:flex;justify-content:space-between;align-items:center;padding:.8rem 0}
+    .logo{font-size:1.6rem;font-weight:700;color:var(--clr-dark)}
+    .logo span{color:var(--clr-primary)}
+
+    #menu-toggle{display:none}
+    .hamburger{display:none;cursor:pointer;width:24px;height:18px;position:relative}
+    .hamburger span,.hamburger span::before,.hamburger span::after{
+      position:absolute;height:3px;width:100%;background:var(--clr-dark);
+      border-radius:3px;content:"";transition:transform .3s}
+    .hamburger span::before{top:-6px}
+    .hamburger span::after{top:6px}
+
+    .nav-links{display:flex;gap:2rem}
+    .nav-links a{font-weight:500}
+    .nav-links a:hover{color:var(--clr-primary)}
+
+    /* mobile nav */
+    @media(max-width:768px){
+      .hamburger{display:block}
+      .nav-links{position:absolute;top:100%;left:0;width:100%;flex-direction:column;
+        background:#fff;max-height:0;overflow:hidden;transition:max-height .3s;
+        box-shadow:0 4px 12px rgb(0 0 0 / 10%)}
+      #menu-toggle:checked~label .hamburger span{background:transparent}
+      #menu-toggle:checked~label .hamburger span::before{transform:translateY(6px) rotate(45deg)}
+      #menu-toggle:checked~label .hamburger span::after{transform:translateY(-6px) rotate(-45deg)}
+      #menu-toggle:checked~ul.nav-links{max-height:260px;padding:1rem 0}
+      .nav-links li{padding:.7rem 1.5rem}
+    }
+
+    /* anchor offset */
+    section{scroll-margin-top:90px}
+
+    /* ------------------------------
+       HERO
+    ------------------------------ */
+    .hero{padding:6rem 0 4rem}
+    .hero h1{font-size:clamp(2rem,4vw+1rem,3.4rem);font-weight:700;line-height:1.2}
+    .hero h1 .accent{color:var(--clr-primary)}
+    .hero p{margin:1.2rem 0 2.4rem;color:var(--clr-muted);font-size:1.125rem;max-width:48ch;margin-inline:auto}
+
+    /* stats banner */
+    .stats-banner{background:#fff;padding:2rem 0;box-shadow:inset 0 1px 0 rgb(0 0 0 / 5%)}
+    .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1.5rem;text-align:center}
+    .stat .num{display:block;font-size:2rem;font-weight:700;color:var(--clr-primary)}
+    .stat .label{font-size:.95rem;color:var(--clr-muted)}
+
+    /* industries */
+    .industries{padding:4rem 0 2rem}
+    .industry-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.5rem;margin-top:2rem}
+    .industry{background:#fff;padding:1.5rem;border-radius:var(--radius-lg);box-shadow:0 4px 12px rgb(0 0 0 / 5%);
+      display:flex;flex-direction:column;align-items:center;gap:.8rem;font-weight:600;}
+    .industry i{font-size:1.6rem;color:var(--clr-primary)}
+
+    /* highlights (services) */
+    .highlights{padding:4rem 0 2rem}
+    .grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;margin-top:2rem}
+    .card{background:#fff;border-radius:var(--radius-lg);box-shadow:0 6px 16px rgb(0 0 0 / 6%);padding:2rem 1.5rem;text-align:center;
+      transition:transform .3s,box-shadow .3s}
+    .card:hover{transform:translateY(-6px);box-shadow:0 12px 24px rgb(0 0 0 / 8%)}
+    .card i{font-size:2rem;color:var(--clr-primary);margin-bottom:1rem}
+    .card h3{margin-bottom:.6rem;font-size:1.25rem}
+    .card p{color:var(--clr-muted);font-size:.95rem}
+
+    /* testimonial */
+    .testimonial{background:var(--clr-primary);color:#fff;padding:4rem 1rem;margin:4rem 0;border-radius:var(--radius-lg)}
+    .testimonial blockquote{font-size:1.25rem;line-height:1.5;max-width:50ch;margin-inline:auto;font-weight:300}
+    .testimonial cite{display:block;margin-top:1rem;font-weight:600;font-style:normal}
+
+    /* CTA banner */
+    .cta-banner{padding:3rem 0 5rem}
+    .cta-banner h2{font-size:1.8rem;margin-bottom:1rem}
+
+    /* footer */
+    .footer{background:#fff;padding:2rem 0;text-align:center;font-size:.9rem;color:var(--clr-muted);border-top:1px solid rgba(0,0,0,0.05)}
+    .social{display:flex;justify-content:center;gap:1rem;margin-top:.8rem}
+    .social a{font-size:1.2rem;color:var(--clr-muted)}
+    .social a:hover{color:var(--clr-primary)}
+  </style>
 </head>
-
 <body>
-  <!-- ═══════════ NAV ═══════════ -->
-  <header class="top-nav" role="banner">
+  <!-- NAV -->
+  <header class="top-nav">
     <div class="container nav-inner">
-      <a href="index.html" class="logo" aria-label="Janklow.ai home">Janklow<span>.ai</span></a>
-
-      <nav aria-label="Primary">
-        <input type="checkbox" id="menu-toggle" aria-label="Open menu">
-        <label for="menu-toggle" class="hamburger"><span></span></label>
-
-        <ul class="nav-links">
-          <li><a href="services.html">Services</a></li>
-          <li><a href="process.html">Process</a></li>
-          <li><a href="#capabilities">Capabilities</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html" class="btn-cta">Contact</a></li>
-        </ul>
-      </nav>
+      <a href="#" class="logo">Janklow<span>.ai</span></a>
+      <input type="checkbox" id="menu-toggle">
+      <label for="menu-toggle" class="hamburger"><span></span></label>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact" class="cta">Contact</a></li>
+      </ul>
     </div>
   </header>
 
-  <!-- ═══════════ HERO ═══════════ -->
-  <section id="home" class="hero hero-local">
-    <canvas id="bg" aria-hidden="true"></canvas>
+  <!-- HERO -->
+  <section class="hero text-center" id="home">
     <div class="container hero-inner">
-      <h1><span class="accent">If&nbsp;It&nbsp;Can&nbsp;Be&nbsp;Automated&nbsp;—&nbsp;We&nbsp;Build&nbsp;It.</span></h1>
-      <p>From AI-generated <strong>viral commercials</strong> to predictive <strong>supply-chain engines</strong>, we craft custom systems that slash costs, drive sales, and surface opportunities you didn’t know existed—often in <strong>under&nbsp;60&nbsp;days</strong>.</p>
-      <a href="contact.html" class="btn-primary">Book a Free Strategy Call</a>
+      <h1><span class="accent">AI &amp; Automation</span> that Grows Sioux Falls Businesses</h1>
+      <p class="sub">We turn everyday data and workflows into smart, self‑optimizing systems that boost revenue, slash manual hours, and delight customers—often in <strong>under 60 days</strong>.</p>
+      <a href="#contact" class="btn btn-primary">Book Free Strategy Call</a>
     </div>
   </section>
 
-  <!-- ═══════════ KPIs ═══════════ -->
-  <section id="impact" class="stats-banner" aria-label="Impact metrics">
+  <!-- STATS -->
+  <section class="stats-banner">
     <div class="container stats-grid">
-      <div class="stat"><span class="num">30%</span><span class="label">Avg. Cost Reduction</span></div>
-      <div class="stat"><span class="num">4.6×</span><span class="label">Throughput Increase</span></div>
-      <div class="stat"><span class="num">6&nbsp;weeks</span><span class="label">Idea&nbsp;→&nbsp;Production</span></div>
-    </div>
-  </section>
-
-  <!-- ═══════════ INDUSTRIES ═══════════ -->
-<section id="industries" class="industries">
-  <div class="container">
-    <h2>Who We Help</h2>
-
-    <div class="industry-grid">
-      <div class="industry">
-        <i class="fa-solid fa-industry" aria-hidden="true"></i>
-        <span>Manufacturing</span>
-      </div>
-
-      <div class="industry">
-        <i class="fa-solid fa-store" aria-hidden="true"></i>
-        <span>Retail&nbsp;&amp;&nbsp;E-commerce</span>
-      </div>
-
-      <div class="industry">
-        <i class="fa-solid fa-building" aria-hidden="true"></i>
-        <span>Real&nbsp;Estate</span>
-      </div>
-
-      <div class="industry">
-        <i class="fa-solid fa-stethoscope" aria-hidden="true"></i>
-        <span>Healthcare</span>
-      </div>
-
-      <div class="industry">
-        <i class="fa-solid fa-briefcase" aria-hidden="true"></i>
-        <span>Pro&nbsp;Services</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-  <!-- ═══════════ CAPABILITIES ═══════════ -->
-  <section id="capabilities" class="highlights" aria-label="Our AI capabilities">
-    <div class="container grid-3">
-      <div class="card">
-        <i class="fa-solid fa-bullhorn" aria-hidden="true"></i>
-        <h3>AI-Powered Marketing Suite</h3>
-        <p>Auto-generate ads, landing pages, SEO blogs and Instagram growth loops—measured in <em>ROAS</em>, not impressions.</p>
-      </div>
-
-      <div class="card">
-        <i class="fa-solid fa-video" aria-hidden="true"></i>
-        <h3>Generative Media &amp; Commercials</h3>
-        <p>Hyper-real video spots starring your brand or spokesperson, produced in hours instead of weeks.</p>
-      </div>
-
-      <div class="card">
-        <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
-        <h3>Predictive &amp; Prescriptive Analytics</h3>
-        <p>Forecast demand, pricing, risk or churn—then trigger the exact action to capture the upside.</p>
-      </div>
-
-      <div class="card">
-        <i class="fa-solid fa-robot" aria-hidden="true"></i>
-        <h3>Process Automation &amp; RPA</h3>
-        <p>Replace swivel-chair tasks with autonomous agents that talk to every system you already use.</p>
-      </div>
-
-      <div class="card">
-        <i class="fa-solid fa-brain" aria-hidden="true"></i>
-        <h3>LLM Apps &amp; Chatbots</h3>
-        <p>Domain-tuned assistants that handle support, intake, compliance and upsell—24/7, in any language.</p>
-      </div>
-
-      <div class="card">
-        <i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
-        <h3>Your “What-If” Idea</h3>
-        <p>Bring us the scribble on a napkin; we’ll turn it into production software—and show you KPIs you never asked for.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════ UNKNOWN-UNKNOWNS BANNER ═══════════ -->
-  <section class="stats-banner" style="text-align:center">
-    <div class="container">
-      <h2 style="margin-bottom:1rem">90 % of our wins come from problems clients never knew they had.</h2>
-      <p>Our first job is to discover the invisible bottlenecks—then obliterate them with AI.</p>
-    </div>
-  </section>
-
-  <!-- ═══════════ TESTIMONIAL ═══════════ -->
-  <section id="testimonial" class="testimonial" aria-label="Client testimonial">
-    <div class="container testimonial-inner">
-      <blockquote>
-        “Janklow.ai automated our tenant-screening pipeline in <strong>four weeks</strong>, freed two FTEs, and cut approval time from days to minutes.”
-      </blockquote>
-      <cite>— COO, Regional Property Group</cite>
-    </div>
-  </section>
-
-  <!-- ═══════════ CTA ═══════════ -->
-  <section id="cta" class="cta-banner">
-    <div class="container cta-inner">
-      <h2>Let’s quantify your AI upside.</h2>
-      <p>Initial discovery is free—see what you could save or earn before you commit.</p>
-      <a href="contact.html" class="btn-primary">Schedule My Free Audit</a>
-    </div>
-  </section>
-
-  <!-- ═══════════ FOOTER ═══════════ -->
-  <footer class="footer" role="contentinfo">
-    <div class="container footer-inner">
-      <p>© 2025 Janklow.ai · Sioux Falls, SD · <a href="mailto:info@janklowai.xyz">info@janklowai.xyz</a></p>
-      <div class="social">
-        <a href="https://linkedin.com" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="https://twitter.com"   aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-        <a href="https://github.com"    aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ═══════════ SCRIPTS ═══════════ -->
-  <script src="app.js" defer></script>
-  <noscript>Your browser does not support JavaScript or it is disabled. Interactive enhancements are unavailable.</noscript>
-</body>
-</html>
+      <div class="stat"><span class="num">28%</span><span class="label">Average Cost Reduction</span></div>
+      <div class="stat"><span class="num">4.6×</span><span class="label">Ops Throughput Gain
