@@ -1,136 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Janklow.ai – AI & Automation for Midwest Businesses</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <style>
-    /* ------------------------------
-       BRAND COLORS & GLOBALS
-    ------------------------------ */
-    :root {
-      --clr-primary: #0d6efd;   /* blue – trust */
-      --clr-accent:  #ff6037;   /* orange – CTA */
-      --clr-dark:    #1e1e1e;
-      --clr-light:   #f8f9fc;
-      --clr-muted:   #6c7a89;
-      --radius:      .75rem;
-      --maxw:        1120px;
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:'Inter',sans-serif;line-height:1.6;color:var(--clr-dark);background:var(--clr-light);scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
-    img{display:block;max-width:100%}
-    a{text-decoration:none;color:inherit;transition:.2s}
-    ul{list-style:none}
-    .container{width:min(92%,var(--maxw));margin-inline:auto}
-    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 1.8rem;border-radius:var(--radius);font-weight:600;cursor:pointer;border:2px solid transparent;transition:filter .2s,transform .2s}
-    .btn-primary{background:var(--clr-accent);color:#fff;border-color:var(--clr-accent)}
-    .btn-primary:hover{filter:brightness(1.07);transform:translateY(-2px)}
-    section{scroll-margin-top:90px}
-
-    /* ------------------------------ NAV */
-    .top-nav{position:sticky;top:0;width:100%;z-index:100;background:rgba(255,255,255,.85);backdrop-filter:blur(8px);box-shadow:0 2px 6px rgb(0 0 0 / 6%)}
-    .nav-inner{display:flex;justify-content:space-between;align-items:center;padding:.8rem 0}
-    .logo{font-size:1.6rem;font-weight:700}
-    .logo span{color:var(--clr-primary)}
-
-    #menu-toggle{display:none}
-    .hamburger{display:none;cursor:pointer;width:24px;height:18px;position:relative}
-    .hamburger span,.hamburger span::before,.hamburger span::after{content:"";position:absolute;width:100%;height:3px;background:var(--clr-dark);border-radius:3px;transition:.3s}
-    .hamburger span::before{top:-6px}
-    .hamburger span::after{top:6px}
-    .nav-links{display:flex;gap:2rem;align-items:center}
-    .nav-links a{font-weight:500}
-    .nav-links a:hover{color:var(--clr-primary)}
-    @media(max-width:768px){
-      .hamburger{display:block}
-      .nav-links{position:absolute;top:100%;left:0;width:100%;flex-direction:column;max-height:0;overflow:hidden;background:#fff;box-shadow:0 4px 12px rgb(0 0 0 / 10%);transition:max-height .3s}
-      #menu-toggle:checked~label .hamburger span{background:transparent}
-      #menu-toggle:checked~label .hamburger span::before{transform:translateY(6px) rotate(45deg)}
-      #menu-toggle:checked~label .hamburger span::after{transform:translateY(-6px) rotate(-45deg)}
-      #menu-toggle:checked~ul.nav-links{max-height:260px;padding:1rem 0}
-      .nav-links li{padding:.7rem 1.5rem}
-    }
-
-    /* ------------------------------ HERO */
-    .hero{padding:6rem 0 4rem;text-align:center}
-    .hero h1{font-size:clamp(2rem,4vw+1rem,3.5rem);font-weight:700;line-height:1.2}
-    .hero .accent{color:var(--clr-primary)}
-    .hero p{max-width:48ch;margin:1.2rem auto 2.4rem;color:var(--clr-muted);font-size:1.125rem}
-
-    /* ------------------------------ STATS */
-    .stats{background:#fff;padding:2rem 0;box-shadow:inset 0 1px 0 rgb(0 0 0 / 5%)}
-    .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1.5rem;text-align:center}
-    .stat .num{display:block;font-size:2rem;font-weight:700;color:var(--clr-primary)}
-    .stat .label{color:var(--clr-muted);font-size:.95rem}
-
-    /* ------------------------------ INDUSTRIES */
-    .industries{padding:4rem 0 2rem;text-align:center}
-    .industry-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.5rem;margin-top:2rem}
-    .industry{background:#fff;padding:1.5rem;border-radius:var(--radius);box-shadow:0 4px 12px rgb(0 0 0 / 5%);font-weight:600;display:flex;flex-direction:column;align-items:center;gap:.8rem}
-    .industry i{color:var(--clr-primary);font-size:1.6rem}
-
-    /* ------------------------------ SERVICES */
-    .services{padding:4rem 0 2rem;text-align:center}
-    .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;margin-top:2rem}
-    .card{background:#fff;padding:2rem 1.5rem;border-radius:var(--radius);box-shadow:0 6px 16px rgb(0 0 0 / 6%);transition:.3s}
-    .card:hover{transform:translateY(-6px);box-shadow:0 12px 24px rgb(0 0 0 / 8%)}
-    .card i{font-size:2rem;color:var(--clr-primary);margin-bottom:1rem}
-    .card h3{font-size:1.25rem;margin-bottom:.6rem}
-    .card p{color:var(--clr-muted);font-size:.95rem}
-
-    /* ------------------------------ PROCESS */
-    .process{padding:4rem 0 2rem;text-align:center;background:var(--clr-light)}
-
-    /* ------------------------------ TESTIMONIAL */
-    .testimonial{background:var(--clr-primary);color:#fff;padding:4rem 1rem;margin:4rem 0;border-radius:var(--radius);text-align:center}
-    .testimonial blockquote{max-width:50ch;margin-inline:auto;font-size:1.25rem;font-weight:300;line-height:1.5}
-    .testimonial cite{display:block;margin-top:1rem;font-weight:600;font-style:normal}
-
-    /* ------------------------------ ABOUT */
-    .about{padding:4rem 0 2rem}
-    .about-inner{display:grid;grid-template-columns:1fr;gap:2rem}
-    .about-inner p{color:var(--clr-muted);font-size:1.05rem}
-    @media(min-width:768px){.about-inner{grid-template-columns:1fr 1fr}}
-
-    /* ------------------------------ CTA */
-    .cta{padding:3rem 0 5rem;text-align:center}
-    .cta h2{font-size:1.8rem;margin-bottom:1rem}
-
-    /* ------------------------------ CONTACT */
-    .contact{padding:4rem 0 2rem;text-align:center;background:#fff}
-    form{max-width:420px;margin-inline:auto;display:grid;gap:1rem}
-    input,textarea{padding:.8rem 1rem;border:1px solid #d1d5db;border-radius:var(--radius);font-family:inherit;font-size:1rem}
-    textarea{min-height:140px;resize:vertical}
-
-    /* ------------------------------ FOOTER */
-    .footer{background:#fff;padding:2rem 0;text-align:center;font-size:.9rem;color:var(--clr-muted);border-top:1px solid rgba(0,0,0,0.05)}
-    .social{display:flex;justify-content:center;gap:1rem;margin-top:.8rem}
-    .social a{color:var(--clr-muted);font-size:1.2rem}
-    .social a:hover{color:var(--clr-primary)}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Janklow.ai – AI & Automation for Midwest Businesses</title>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-  <!-- NAV -->
-  <header class="top-nav">
-    <div class="container nav-inner">
-      <a href="#home" class="logo">Janklow<span>.ai</span></a>
+<header class="top-nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">Janklow<span>.ai</span></a>
+    <nav>
       <input type="checkbox" id="menu-toggle">
       <label for="menu-toggle" class="hamburger"><span></span></label>
       <ul class="nav-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#process">Process</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact" class="cta">Contact</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="process.html">Process</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="cta">Contact</a></li>
       </ul>
-    </div>
-  </header>
+    </nav>
+  </div>
+</header>
 
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="container">
-      <h1><span class="accent">AI &amp; Automation</
+<section class="hero hero-local">
+  <div class="container hero-inner">
+    <h1><span class="accent">AI&nbsp;& Automation</span> that Grows Sioux Falls Businesses</h1>
+    <p class="sub">We turn your everyday data and workflows into smart, self‑optimizing systems that boost revenue, slash manual hours, and delight customers—often in <strong>under 60 days</strong>.</p>
+    <div class="hero-cta">
+      <a href="contact.html" class="btn-primary">Book Free Strategy Call</a>
+    </div>
+  </div>
+</section>
+
+<section class="stats-banner">
+  <div class="container stats-grid">
+    <div class="stat"><span class="num">28%</span><span class="label">Average Cost Reduction</span></div>
+    <div class="stat"><span class="num">4.6×</span><span class="label">Ops Throughput Gain</span></div>
+    <div class="stat"><span class="num">6‑week</span><span class="label">Prototype to Production</span></div>
+  </div>
+</section>
+
+<section class="industries">
+  <div class="container">
+    <h2>Who We Help</h2>
+    <div class="industry-grid">
+      <div class="industry"><i class="fa-solid fa-warehouse"></i>Manufacturing</div>
+      <div class="industry"><i class="fa-solid fa-store"></i>Retail & E‑commerce</div>
+      <div class="industry"><i class="fa-solid fa-building"></i>Real Estate</div>
+      <div class="industry"><i class="fa-solid fa-stethoscope"></i>Healthcare</div>
+      <div class="industry"><i class="fa-solid fa-screwdriver-wrench"></i>Professional Services</div>
+    </div>
+  </div>
+</section>
+
+<section class="highlights">
+  <div class="container grid-3">
+    <div class="card">
+      <i class="fa-solid fa-magnifying-glass-chart"></i>
+      <h3>AI Opportunity Audit</h3>
+      <p>Data‑driven discovery sessions pinpoint where AI and automation will create the greatest ROI.</p>
+    </div>
+    <div class="card">
+      <i class="fa-solid fa-gears"></i>
+      <h3>Custom Solution Design</h3>
+      <p>We architect and build bespoke models, pipelines, and automations aligned with your unique workflows.</p>
+    </div>
+    <div class="card">
+      <i class="fa-solid fa-rocket"></i>
+      <h3>End‑to‑End Delivery</h3>
+      <p>From integration and security to team enablement—our experts handle deployment so you can scale with confidence.</p>
+    </div>
+  </div>
+</section>
+
+<section class="testimonial">
+  <div class="container testimonial-inner">
+    <blockquote>
+      “Janklow.ai automated our tenant‑screening pipeline in four weeks, freeing two full‑time employees and cutting application turnaround from days to minutes.”
+    </blockquote>
+    <cite>— COO, Regional Property Group</cite>
+  </div>
+</section>
+
+<section class="cta-banner local-cta">
+  <div class="container cta-inner">
+    <h2>Curious what AI could save—or earn—your business?</h2>
+    <p>Let's run the numbers together. Initial discovery is on us.</p>
+    <a href="contact.html" class="btn-primary">Schedule My Free Audit</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <p>© 2025 Janklow.ai · Sioux Falls, SD · info@janklowai.xyz</p>
+    <div class="social">
+      <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="#"><i class="fa-brands fa-github"></i></a>
+    </div>
+  </div>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>
