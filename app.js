@@ -66,6 +66,21 @@ if(cvs){
     });
     requestAnimationFrame(anim);
   })();
+
+  /* ── PARALLAX DRIFT  ─────────────────────────────── */
+document.addEventListener('mousemove', e=>{
+  const dx = (e.clientX / window.innerWidth  - 0.5) * 10; // desktop
+  const dy = (e.clientY / window.innerHeight - 0.5) * 10;
+  cvs.style.transform = `translate(${dx}px,${dy}px)`;
+});
+
+window.addEventListener('deviceorientation', e=>{
+  if (!e.gamma) return;                                    // iOS permission guard
+  const dx =  e.gamma / 2;  // side tilt
+  const dy = -e.beta  / 4;  // forward/back tilt
+  cvs.style.transform = `translate(${dx}px,${dy}px)`;
+});
+
 }
 
 
