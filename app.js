@@ -74,6 +74,18 @@ document.addEventListener('mousemove', e=>{
   cvs.style.transform = `translate(${dx}px,${dy}px)`;
 });
 
+  /* ── MAGNETIC BUTTONS  ───────────────────────────── */
+document.querySelectorAll('.btn-primary, .btn-cta').forEach(btn=>{
+  btn.addEventListener('mousemove', e=>{
+    const {left, top, width, height} = btn.getBoundingClientRect();
+    const x = (e.clientX - left - width  / 2) / 6;
+    const y = (e.clientY - top  - height / 2) / 6;
+    btn.style.transform = `translate(${x}px, ${y}px)`;
+  });
+  btn.addEventListener('mouseleave', ()=> btn.style.transform = 'translate(0,0)');
+});
+
+
 window.addEventListener('deviceorientation', e=>{
   if (!e.gamma) return;                                    // iOS permission guard
   const dx =  e.gamma / 2;  // side tilt
