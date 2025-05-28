@@ -54,25 +54,24 @@ img{max-width:100%;display:block}
 .nav-links .cta:hover{filter:brightness(1.1)}
 /* Hamburger (checkbox hack) */
 #menu-toggle,.hamburger{display:none}
-@media (max-width: 768px) {
-  .hamburger{ /* … */ }
+@media(max-width:768px){
+  .nav-links{flex-direction:column;align-items:flex-start;max-height:0;width:100%;}
+  .hamburger{display:block;}
+}
 
+  #menu-toggle:checked + .hamburger span{background:transparent}
+  #menu-toggle:checked + .hamburger span::before{
+    transform:translateY(8px)rotate(45deg)
+  }
+  #menu-toggle:checked + .hamburger span::after{
+    transform:translateY(-8px)rotate(-45deg)
+  }
   .nav-links{
-    position:fixed;
-    inset:64px 0 0 100%;
-    /* NEW → */ width:100vw;          /* overlay the full viewport */
-    flex-direction:column;
-    padding:2rem 1.5rem;
-    background:var(--clr-white);
-    height:calc(100vh - 64px);
-    gap:1.5rem;
+    position:fixed;inset:64px 0 0 100%;flex-direction:column;padding:2rem 1.5rem;
+    background:var(--clr-white);height:calc(100vh - 64px);gap:1.5rem;
     transition:transform .3s ease;
-    overflow-y:auto;                 /* scroll if the list grows */
   }
-
-  #menu-toggle:checked ~ .nav-links{
-    transform:translateX(-100%);
-  }
+  #menu-toggle:checked ~ .nav-links{transform:translateX(-100%)}
 }
 
 
