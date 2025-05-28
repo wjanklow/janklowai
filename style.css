@@ -54,6 +54,7 @@ img{max-width:100%;display:block}
 .nav-links .cta:hover{filter:brightness(1.1)}
 /* Hamburger (checkbox hack) */
 #menu-toggle,.hamburger{display:none}
+/* ── MOBILE NAV FIX ─────────────────────────────────── */
 @media (max-width: 768px){
 
   /* show the hamburger */
@@ -93,21 +94,6 @@ img{max-width:100%;display:block}
     overflow-y:auto;transition:right .3s ease;
   }
   #menu-toggle:checked ~ .nav-links{right:0}        /* slide in */
-}
-
-  #menu-toggle:checked + .hamburger span{background:transparent}
-  #menu-toggle:checked + .hamburger span::before{
-    transform:translateY(8px)rotate(45deg)
-  }
-  #menu-toggle:checked + .hamburger span::after{
-    transform:translateY(-8px)rotate(-45deg)
-  }
-  .nav-links{
-    position:fixed;inset:64px 0 0 100%;flex-direction:column;padding:2rem 1.5rem;
-    background:var(--clr-white);height:calc(100vh - 64px);gap:1.5rem;
-    transition:transform .3s ease;
-  }
-  #menu-toggle:checked ~ .nav-links{transform:translateX(-100%)}
 }
 
 
