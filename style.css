@@ -203,6 +203,14 @@ input:focus,textarea:focus{outline:2px solid var(--blue)}
 .social a{font-size:1.3rem;color:#c3c7d9}
 .social a:hover{color:var(--orange)}
 
+#demo video{
+  width:100%;
+  max-width:480px;      /* 2:3 @ 480×720 looks great on desktop */
+  margin-inline:auto;   /* centers inside the container */
+  border-radius:var(--r);
+  box-shadow:var(--sh);
+}
+
 
 /* ── MAGNETIC CTA BUTTONS ────────────────────────── */
 .btn-primary,
