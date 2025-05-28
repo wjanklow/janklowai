@@ -202,3 +202,12 @@ input:focus,textarea:focus{outline:2px solid var(--blue)}
 .social{display:flex;gap:1.2rem}
 .social a{font-size:1.3rem;color:#c3c7d9}
 .social a:hover{color:var(--orange)}
+
+
+/* ── MAGNETIC CTA BUTTONS ────────────────────────── */
+.btn-primary,
+.btn-cta{
+  position:relative;
+  transition:transform .25s cubic-bezier(.25,.46,.45,.94);
+}
+
