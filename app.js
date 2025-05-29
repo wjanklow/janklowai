@@ -95,29 +95,31 @@ window.addEventListener('deviceorientation', e=>{
 
 }
 
-/* ── Lazy-load & click-to-unmute ─────────────────── */
-const ad      = document.getElementById('janklowAd');
-const toggle  = document.getElementById('videoToggle');
+/* ── Lazy-load + click-to-unmute / pause ─────────── */
+const ad       = document.getElementById('janklowAd');
+const adToggle = document.getElementById('videoToggle');
 
-if (ad && toggle){
-  /* lazy-load */
+if (ad && adToggle){
+  /* lazy-load when section nears viewport */
   new IntersectionObserver(([e],o)=>{
     if (!e.isIntersecting) return;
     ad.preload = 'auto'; ad.load(); o.disconnect();
   },{threshold:.4}).observe(ad);
 
-  /* click-toggle sound / pause */
-  toggle.addEventListener('click', ()=>{
+  /* toggle sound / play-pause */
+  adToggle.addEventListener('click', ()=>{
     if (ad.paused){
-      ad.play();                 // resume if user paused
+      ad.play();                              // resume if paused
       ad.muted = false;
-      toggle.classList.remove('paused');
+      adToggle.classList.remove('paused');
     } else if (ad.muted){
-      ad.muted = false;
+      ad.muted = false;                       // un-mute
     } else {
-      ad.pause();
-      toggle.classList.add('paused');
+      ad.pause();                             // pause + show play icon
+      adToggle.classList.add('paused');
     }
   });
 }
+
+
 
