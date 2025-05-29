@@ -146,26 +146,45 @@ section{scroll-margin-top:88px;padding:var(--pad) 0}
 .stat .num{font-size:2.25rem;font-weight:700;color:var(--orange)}
 .stat .label{margin-top:.25rem;color:#c3c7d9}
 
-/* ============  INDUSTRIES  ================================================= */
-.industries h2{text-align:center;font-size:clamp(1.6rem,5vw,2.2rem);margin-bottom:2.75rem}
-.industry-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1.6rem}
-/* uniform look on all devices */
-.industry{
-  background: var(--bg-light);        /* solid card matches site palette */
-  color: var(--text-dark);            /* dark text everywhere           */
-  border: 1px solid rgba(0,0,0,.05);  /* light outline for separation   */
-  border-radius: var(--r);
-  box-shadow: var(--sh);
-  padding: 1.6rem;
-  display: flex; flex-direction: column; align-items: center;
-  gap: .85rem; font-weight: 500; text-align: center;
-  transition: transform .3s;
+/* ============  INDUSTRIES  =============================================== */
+.industries{
+  background: var(--bg-dark);          /* dark section strip */
+  color: var(--text-light);
 }
-.industry:hover{ transform: translateY(-4px); }
-.industry i{ font-size:1.9rem; color: var(--blue); }
 
-.industry:hover{transform:translateY(-4px)}
-.industry i{font-size:1.9rem;color:var(--blue)}
+.industries h2{                       /* keep heading readable */
+  color: var(--text-light);
+  text-align:center;
+  font-size:clamp(1.6rem,5vw,2.2rem);
+  margin-bottom:2.75rem;
+}
+
+.industry-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:1.6rem;
+}
+
+/* dark cards, brand-blue icons, light text */
+.industry{
+  background:#1a1e29;                /* slightly lighter than bg-dark */
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--r);
+  box-shadow:var(--sh);
+  padding:1.6rem;
+  display:flex;flex-direction:column;align-items:center;
+  gap:.85rem;font-weight:500;text-align:center;
+  transition:transform .3s,background .3s;
+}
+.industry:hover{
+  transform:translateY(-4px);
+  background:#222736;
+}
+.industry i{
+  font-size:1.9rem;
+  color:var(--blue);                 /* brand blue icon */
+}
+
 
 /* ============  HIGHLIGHT CARDS  ========================================== */
 .highlights{background:var(--bg-light)}
