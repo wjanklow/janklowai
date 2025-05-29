@@ -248,6 +248,19 @@ input:focus,textarea:focus{outline:2px solid var(--blue)}
 #videoPlay.playing::before{content:'\f04c';}     /* pause icon */
 
 
+/* ── KPI strip: tighter on narrow phones ─────────── */
+@media (max-width: 480px){
+  .stats-grid{
+    grid-template-columns:repeat(3,1fr); /* 3 side-by-side */
+    column-gap:1rem; row-gap:1rem;
+  }
+  .stat{
+    text-align:center;
+  }
+  .stat .num{ font-size:1.6rem; }
+  .stat .unit{ margin-left:2px; }
+  .stat .label{ font-size:.78rem; line-height:1.2; }
+}
 
 
 
