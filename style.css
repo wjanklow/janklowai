@@ -214,24 +214,39 @@ input:focus,textarea:focus{outline:2px solid var(--blue)}
   
 }
 
-/* video-frame & button styling */
-.video-frame{
+/* ── Demo video styling ───────────────────────────── */
+.video-wrap{
   position:relative;
-  width:100%; aspect-ratio:16/9; overflow:hidden;
-  border-radius:var(--r); box-shadow:var(--sh); margin-inline:auto;
+  width:100%;
+  max-width:480px;          /* cap desktop width so it doesn't dominate */
+  aspect-ratio:9/16;        /* portrait 9:16 reserve */
+  margin-inline:auto;
+  overflow:hidden;
+  border-radius:var(--r);
+  box-shadow:var(--sh);
 }
-.video-frame video{width:100%;height:100%;object-fit:cover}
+.video-wrap video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* button overlay */
 #videoToggle{
-  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-  background:rgba(0,0,0,.35);border:none;cursor:pointer;opacity:0;transition:opacity .25s;
+  position:absolute; inset:0;
+  display:flex; align-items:center; justify-content:center;
+  background:rgba(0,0,0,.25);
+  border:none; cursor:pointer;
+  opacity:0; transition:opacity .25s;
 }
-.video-frame:hover #videoToggle{opacity:1}
+.video-wrap:hover #videoToggle{opacity:1;}
 #videoToggle::before{
-  content:'\f130';              /* FA volume-up icon */
-  font-family:"Font Awesome 6 Free";font-weight:900;
-  color:#fff;font-size:2.5rem;
+  content:'\f130';                          /* FontAwesome volume-up */
+  font-family:"Font Awesome 6 Free"; font-weight:900;
+  color:#fff; font-size:2.5rem;
 }
-#videoToggle.paused::before{content:'\f04b'} /* play icon when paused */
+#videoToggle.paused::before{content:'\f04b';} /* play icon */
+
 
 
 
