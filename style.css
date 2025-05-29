@@ -210,5 +210,28 @@ input:focus,textarea:focus{outline:2px solid var(--blue)}
 .btn-cta{
   position:relative;
   transition:transform .25s cubic-bezier(.25,.46,.45,.94);
+
+  
 }
+
+/* video-frame & button styling */
+.video-frame{
+  position:relative;
+  width:100%; aspect-ratio:16/9; overflow:hidden;
+  border-radius:var(--r); box-shadow:var(--sh); margin-inline:auto;
+}
+.video-frame video{width:100%;height:100%;object-fit:cover}
+#videoToggle{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  background:rgba(0,0,0,.35);border:none;cursor:pointer;opacity:0;transition:opacity .25s;
+}
+.video-frame:hover #videoToggle{opacity:1}
+#videoToggle::before{
+  content:'\f130';              /* FA volume-up icon */
+  font-family:"Font Awesome 6 Free";font-weight:900;
+  color:#fff;font-size:2.5rem;
+}
+#videoToggle.paused::before{content:'\f04b'} /* play icon when paused */
+
+
 
