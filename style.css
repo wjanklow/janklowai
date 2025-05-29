@@ -263,5 +263,16 @@ input:focus,textarea:focus{outline:2px solid var(--blue)}
 }
 
 
+/* ── Industry tiles: higher contrast on phones ───────────── */
+@media (max-width: 600px){
+  .industry{
+    background: var(--clr-white);          /* solid card */
+    color: var(--clr-dark);                /* dark text for contrast */
+    border: 1px solid rgba(0,0,0,.05);     /* subtle outline */
+  }
+  .industry i{
+    color: var(--clr-primary);             /* keep brand-blue icons */
+  }
+}
 
 
