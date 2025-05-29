@@ -95,31 +95,32 @@ window.addEventListener('deviceorientation', e=>{
 
 }
 
-/* ── Lazy-load + click-to-unmute / pause ─────────── */
+/* ── Lazy-load + click-to-play ───────────────────── */
 const ad       = document.getElementById('janklowAd');
-const adToggle = document.getElementById('videoToggle');
+const playBtn  = document.getElementById('videoPlay');
 
-if (ad && adToggle){
-  /* lazy-load when section nears viewport */
+if (ad && playBtn){
+  /* lazy-load video file */
   new IntersectionObserver(([e],o)=>{
     if (!e.isIntersecting) return;
-    ad.preload = 'auto'; ad.load(); o.disconnect();
-  },{threshold:.4}).observe(ad);
+    ad.preload = 'auto'; ad.load();           // fetch only when near viewport
+    o.disconnect();
+  }, {threshold:.4}).observe(ad);
 
-  /* toggle sound / play-pause */
-  adToggle.addEventListener('click', ()=>{
-    if (ad.paused){
-      ad.play();                              // resume if paused
-      ad.muted = false;
-      adToggle.classList.remove('paused');
-    } else if (ad.muted){
-      ad.muted = false;                       // un-mute
-    } else {
-      ad.pause();                             // pause + show play icon
-      adToggle.classList.add('paused');
+  /* play on click, hide button */
+  playBtn.addEventListener('click', ()=>{
+    ad.play();                               // starts with sound
+    playBtn.classList.add('hidden');
+  });
+
+  /* if viewer pauses manually, show button again */
+  ad.addEventListener('pause', ()=>{
+    if (ad.currentTime && !ad.ended){
+      playBtn.classList.remove('hidden');
     }
   });
 }
+
 
 
 
