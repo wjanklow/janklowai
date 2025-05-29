@@ -95,31 +95,46 @@ window.addEventListener('deviceorientation', e=>{
 
 }
 
-/* ── Lazy-load + click-to-play ───────────────────── */
+/* ── Lazy-load + full play/pause toggle ─────────── */
 const ad       = document.getElementById('janklowAd');
 const playBtn  = document.getElementById('videoPlay');
 
 if (ad && playBtn){
-  /* lazy-load video file */
+  /* lazy-load */
   new IntersectionObserver(([e],o)=>{
-    if (!e.isIntersecting) return;
-    ad.preload = 'auto'; ad.load();           // fetch only when near viewport
-    o.disconnect();
-  }, {threshold:.4}).observe(ad);
+    if(!e.isIntersecting) return;
+    ad.preload = 'auto'; ad.load(); o.disconnect();
+  },{threshold:.4}).observe(ad);
 
-  /* play on click, hide button */
+  /* toggle play / pause on every click */
   playBtn.addEventListener('click', ()=>{
-    ad.play();                               // starts with sound
-    playBtn.classList.add('hidden');
-  });
-
-  /* if viewer pauses manually, show button again */
-  ad.addEventListener('pause', ()=>{
-    if (ad.currentTime && !ad.ended){
-      playBtn.classList.remove('hidden');
+    if (ad.paused || ad.ended){
+      ad.play();                     // start / resume
+      ad.muted = false;              // play with sound
+      playBtn.classList.add('playing');
+      playBtn.classList.remove('show');
+    } else {
+      ad.pause();                    // pause
+      playBtn.classList.remove('playing');
+      playBtn.classList.add('show');
     }
   });
+
+  /* sync icon when user pauses via keyboard/mobile controls */
+  ad.addEventListener('pause', ()=>{
+    if (!ad.ended){
+      playBtn.classList.remove('playing');
+      playBtn.classList.add('show');
+    }
+  });
+
+  /* when video ends, reset to “play” icon & show button */
+  ad.addEventListener('ended', ()=>{
+    playBtn.classList.remove('playing');
+    playBtn.classList.add('show');
+  });
 }
+
 
 
 
