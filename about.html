@@ -1,35 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- —— Meta & SEO —— -->
+  <!-- —— Meta —— -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About | Janklow.ai – Intelligent Automation &amp; AI Consulting</title>
-  <meta name="description" content="Senior‑level expertise in AI, blockchain, and automation—no hand‑offs, just results." />
+  <title>About | Janklow.ai</title>
+  <meta name="description" content="Nine years building production‑grade AI, automation, and blockchain systems—delivered without the agency bloat." />
 
-  <!-- Fonts / Icons / Styles -->
+  <!-- Shared assets (inherits site‑wide theme) -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
 
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-</head>
+  <!-- Page‑specific styles (kept tiny) -->
+  <style>
+    .page-hero{background:var(--bg-dark);color:var(--text-light);padding:4.5rem 0;text-align:center}
+    .page-hero h1{font-size:clamp(2.1rem,6vw,3.2rem);font-weight:700;margin-bottom:.6rem}
+    .page-hero p{font-size:1.15rem;max-width:720px;margin-inline:auto}
 
+    .about-grid{display:grid;grid-template-columns:minmax(260px,1fr) 2fr;gap:3rem;align-items:flex-start}
+    @media(max-width:840px){.about-grid{grid-template-columns:1fr}}
+    .bio h2{font-size:1.55rem;margin-bottom:1rem}
+    .values-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.7rem;margin-top:2.75rem}
+    .value-card{background:var(--bg-light);border:1px solid rgba(0,0,0,.05);padding:1.6rem 1.4rem;border-radius:var(--r);box-shadow:var(--sh);transition:transform .28s}
+    .value-card:hover{transform:translateY(-4px)}
+    .value-card i{font-size:1.7rem;color:var(--orange);margin-bottom:.9rem}
+    .value-card h3{font-size:1.18rem;margin-bottom:.55rem}
+
+    .timeline{border-left:4px solid var(--blue);padding-left:1.6rem;list-style:none;margin-top:2.5rem}
+    .timeline li{position:relative;margin-bottom:1.6rem}
+    .timeline li::before{content:'';position:absolute;left:-10px;top:.4rem;width:12px;height:12px;border-radius:50%;background:var(--blue)}
+    .timeline time{font-weight:600;color:var(--orange);font-size:.92rem}
+    .timeline p{margin-top:.25rem}
+  </style>
+</head>
 <body>
-  <!-- ═══════════ NAV (shared) ═══════════ -->
+  <!-- NAV (shared component) -->
   <header class="top-nav" role="banner">
     <div class="container nav-inner">
       <a href="index.html" class="logo" aria-label="Janklow.ai home">Janklow<span>.ai</span></a>
-
       <nav aria-label="Primary">
         <input type="checkbox" id="menu-toggle" aria-label="Open menu">
         <label for="menu-toggle" class="hamburger"><span></span></label>
-
         <ul class="nav-links">
           <li><a href="services.html">Services</a></li>
           <li><a href="process.html">Process</a></li>
-          <li><a href="#impact">Impact</a></li>
           <li><a href="about.html" aria-current="page">About</a></li>
           <li><a href="contact.html" class="btn-cta">Contact</a></li>
         </ul>
@@ -37,54 +53,78 @@
     </div>
   </header>
 
-  <!-- ═══════════ HERO ═══════════ -->
-  <section class="hero hero-about" style="min-height:60vh">
-    <canvas id="bg" aria-hidden="true"></canvas>
-    <div class="container hero-inner">
-      <h1>
-        <span class="accent">Engineering Intelligence</span><br/>
-        That Moves the Needle.
-      </h1>
-      <p>Since 2017 I’ve translated cutting‑edge research—<strong>LLMs, multi‑modal GenAI, decentralized protocols, real‑time analytics</strong>—into production systems that unlock hidden margin and new revenue for bold teams.</p>
-      <a href="contact.html" class="btn-primary">Start Your AI Sprint</a>
+  <!-- INTRO STRIP (no big hero) -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>About Janklow.ai</h1>
+      <p>Boutique consultancy turning cutting‑edge AI into measurable, bottom‑line results—partnering directly with companies that demand senior talent, not slide decks.</p>
     </div>
   </section>
 
-  <!-- ═══════════ CORE KPI STRIP ═══════════ -->
-  <section id="impact" class="stats-banner">
-    <div class="container stats-grid">
-      <div class="stat">
-        <span class="num" data-value="9">0</span><span class="unit">yr</span>
-        <span class="label">In Production AI</span>
-      </div>
-      <div class="stat">
-        <span class="num" data-value="150">0</span><span class="unit">M+</span>
-        <span class="label">Value Captured</span>
-      </div>
-      <div class="stat">
-        <span class="num" data-value="3">0</span><span class="unit">cont</span>
-        <span class="label">Continents Served</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════ BIO / STORY ═══════════ -->
-  <section class="about-details" style="padding-top:4rem">
+  <!-- BIO + STATS -->
+  <section class="about-details">
     <div class="container about-grid">
+      <!-- ——— Bio / narrative ——— -->
       <div class="bio">
-        <h2>Will Janklow — Founder &amp; Principal Engineer</h2>
-        <p>I cut my teeth scaling <strong>crypto‑native infrastructure</strong> and architecting <strong>LLM‑powered automation</strong> long before the hype. Today I bring that end‑to‑end know‑how—data pipelines, model ops, dev‑sec‑ops, and product design—directly to your toughest problems.</p>
-        <ul style="margin:1.5rem 0 0 1.1rem;line-height:1.55">
-          <li>⚡ Built a cross‑chain RFQ engine processing <em>billions</em> in on‑chain swaps.</li>
-          <li>🎬 Shipped a GenAI media pipeline that cuts <strong>90 %+</strong> from ad‑production budgets.</li>
-          <li>🧠 Deployed RAG + vector DB stacks that <em>halve</em> customer‑support cost.</li>
-          <li>🚀 Reduced a Midwest manufacturer’s quoting cycle from <strong>48 hrs → 6 min</strong>.</li>
+        <h2>Will Janklow — Founder &amp; Principal Engineer</h2>
+        <p>Over nine years architecting AI, blockchain and automation systems that quietly move <em>real</em> revenue. From <strong>cross‑chain DeFi protocols</strong> processing billions in swaps to <strong>LLM‑powered agents</strong> running 70% of a support desk, my work is measured in latency, uptime and dollars saved—not pitch‑deck superlatives.</p>
+        <p>I’ve shipped generative‑image pipelines at scale, deployed on‑prem LLMs behind air‑gaps, and instrumented real‑time analytics that light up 150&nbsp;million data points per day. That diversity keeps solutions pragmatic: pick the right tool, prove value fast, iterate.</p>
+        <p><strong>Engagement model:</strong> direct Slack access, weekly sprint vids, zero junior hand‑offs.</p>
+
+        <!-- Timeline of notable wins -->
+        <ul class="timeline">
+          <li><time>2025</time><p>Launched <em>Omnichat</em>, a vector‑search RAG chatbot servicing 40+ Shopify stores.</p></li>
+          <li><time>2023</time><p>Built real‑time fraud engine on Solana, reducing false‑positive holds by 29%.</p></li>
+          <li><time>2021</time><p>Automated KYC/AML pipeline for neo‑bank; cut manual review from 3 hrs → 12 min.</p></li>
+          <li><time>2019</time><p>Co‑authored open‑source Python SDK still powering 100k+ automated trades daily.</p></li>
         </ul>
-        <p style="margin-top:1.25rem">No juniors, no layers—work directly with me and ship your AI in weeks, not quarters.</p>
       </div>
 
-      <!-- —— Expertise Snapshot —— -->
-      <div class="stats" style="display:grid;gap:1.6rem">
-        <div class="card">
-          <i class="fa-solid fa-brain" aria-hidden="true"></i>
-          <h3>Generative AI
+      <!-- ——— Stats strip (auto‑animates via app.js) ——— -->
+      <div class="stats">
+        <div class="stat"><span class="num" data-value="9">0</span><span class="label">Years in AI/ML</span></div>
+        <div class="stat"><span class="num" data-value="180">0</span><span class="label">Projects Shipped</span></div>
+        <div class="stat"><span class="num" data-value="3.2">0</span><span class="label">Billion USD Processed</span></div>
+        <div class="stat"><span class="num" data-value="42">0</span><span class="label">Stack Integrations</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES / APPROACH -->
+  <section class="values" aria-label="Core principles">
+    <div class="container">
+      <h2 style="text-align:center;margin-bottom:2.2rem">Engineering Principles</h2>
+      <div class="values-grid">
+        <div class="value-card"><i class="fa-solid fa-gauge-high"></i><h3>Speed to Signal</h3><p>Ship the thin slice that proves—or kills—the idea inside two sprints.</p></div>
+        <div class="value-card"><i class="fa-solid fa-shield-halved"></i><h3>Security by Default</h3><p>Key‑scoped vaults, zero‑trust nets, &amp; audit logs from day one.</p></div>
+        <div class="value-card"><i class="fa-solid fa-arrows-spin"></i><h3>Automate the Automator</h3><p>CI/CD pipelines and self‑healing ops so features—not fire‑fighting—consume cycles.</p></div>
+        <div class="value-card"><i class="fa-solid fa-chess-knight"></i><h3>Tech for Advantage</h3><p>Use GPT‑4o, Rust, Solidity, or bash—whatever maximizes your moat.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA (optional, modest) -->
+  <section class="cta-banner" style="padding:3rem 1rem">
+    <div class="container">
+      <h2>Ready to quantify your AI upside?</h2>
+      <p>Grab a 30‑minute discovery call—no slides, just architectures and numbers.</p>
+      <a href="contact.html" class="btn-primary">Book a Quick Chat</a>
+    </div>
+  </section>
+
+  <!-- FOOTER (shared) -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-inner">
+      <p>© 2025 Janklow.ai · Sioux Falls, SD · <a href="mailto:info@janklowai.xyz">info@janklowai.xyz</a></p>
+      <div class="social">
+        <a href="https://linkedin.com" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://twitter.com" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://github.com" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts shared across site -->
+  <script src="app.js" defer></script>
+</body>
+</html>
